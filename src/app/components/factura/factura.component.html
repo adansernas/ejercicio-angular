@@ -1,0 +1,22 @@
+<p>factura works!</p>
+
+<form>
+    <select>
+        <option *ngFor="let regimenFiscal of regimenFiscals" [value]="regimenFiscal.idRegimenFiscal">{{regimenFiscal.regimenFiscal}}</option>
+    </select>
+
+    <select>
+        <option *ngFor="let productoServicio of productoServicios" [value]="productoServicio.idProductoServicio">{{productoServicio.productoServicio}}</option>
+    </select>
+
+</form>
+
+<hr />
+
+<form>
+    <label>ID Factura</label>
+    <input type="text" name="idFactura" [(ngModel)]="factura.idFactura" />
+    <label>Folio Fiscal</label>
+    <input type="text" name="folioFiscal" [(ngModel)]="factura.folioFiscal" />
+    <button type="button" (click)="guardarFactura()">Guardar</button>
+</form>
