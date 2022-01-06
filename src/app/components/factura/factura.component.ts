@@ -20,7 +20,7 @@ export class FacturaComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any>('http://localhost:8081/authentication/backend/catalogos').subscribe({
+    this.http.get<any>('http://localhost:8081/backend/catalogos').subscribe({
       next: data => {
         let { regimenFiscals, productoServicios } = data;
 
@@ -35,12 +35,14 @@ export class FacturaComponent implements OnInit {
 
   guardarFactura(){
     
-    this.http.post<any>('http://localhost:8081/authentication/backend/facturas', this.factura).subscribe({
+    this.http.post<any>('http://localhost:8081/backend/facturas', this.factura).subscribe({
       next: data => {
         console.log(data);
       },
       error: error => {
-        console.log(error);
+        let { error: { message: message, errors: errors } } = error;
+
+        alert(`${message}\n${errors.join(',\n')}`);
       }
     });
     

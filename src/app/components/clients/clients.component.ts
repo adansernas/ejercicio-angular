@@ -14,7 +14,7 @@ export class ClientsComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any>('http://localhost:8081/authentication/backend/clients').subscribe({
+    this.http.get<any>('http://localhost:8081/backend/clients').subscribe({
         next: data => {
             this.clientes = data;
             
