@@ -1,22 +1,46 @@
 <p>factura works!</p>
 
 <form>
-    <select>
-        <option *ngFor="let regimenFiscal of regimenFiscals" [value]="regimenFiscal.idRegimenFiscal">{{regimenFiscal.regimenFiscal}}</option>
-    </select>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Regimen Fiscal</label>
+        <div class="col-sm-6">
+            <select class="form-select">
+                <option *ngFor="let regimenFiscal of regimenFiscals" [value]="regimenFiscal.idRegimenFiscal">{{regimenFiscal.regimenFiscal}}</option>
+            </select>
+        </div>
+    </div>
 
-    <select>
-        <option *ngFor="let productoServicio of productoServicios" [value]="productoServicio.idProductoServicio">{{productoServicio.productoServicio}}</option>
-    </select>
-
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Regimen Fiscal</label>
+        <div class="col-sm-6">
+            <select class="form-select">
+                <option *ngFor="let productoServicio of productoServicios" [value]="productoServicio.idProductoServicio">{{productoServicio.productoServicio}}</option>
+            </select>
+        </div>
+    </div>
 </form>
 
 <hr />
 
 <form>
-    <label>ID Factura</label>
-    <input type="text" name="idFactura" [(ngModel)]="factura.idFactura" />
-    <label>Folio Fiscal</label>
-    <input type="text" name="folioFiscal" [(ngModel)]="factura.folioFiscal" />
-    <button type="button" (click)="guardarFactura()">Guardar</button>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">ID Factura</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" name="idFactura" [(ngModel)]="factura.idFactura" />
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Folio Fiscal</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="folioFiscal" [(ngModel)]="factura.folioFiscal" />
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-sm-6 offset-2">
+            <button type="button" class="btn btn-primary" (click)="guardarFactura()">Guardar</button>
+        </div>
+    </div>
+    
 </form>
